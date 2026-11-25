@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5f0">
+    <meta name="description" content="Descubre la nueva colección de Maison Étoile: prendas atemporales, diseño francés y materiales elegidos con cuidado.">
+    <title>Maison Étoile — Vestir sin prisa</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ClothingStore",
+        "name": "Maison Étoile",
+        "description": "Marca francesa de ropa y accesorios atemporales.",
+        "url": "https://maison-etoile.example",
+        "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "París",
+          "addressCountry": "FR"
+        },
+        "priceRange": "€€"
+      }
+    </script>
+  </head>
+  <body class="min-h-screen overflow-x-hidden bg-[#f7f5f0] font-sans text-[#20231f] antialiased">
+    <a href="#contenido" class="sr-only z-50 rounded bg-white p-3 text-[#20231f] focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Saltar al contenido</a>
+
+    <header class="border-b border-[#dedbd3] bg-[#f7f5f0]">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+        <div class="flex flex-wrap items-center justify-between gap-x-5 gap-y-3 py-4 lg:py-5">
+          <a href="index.html" class="order-1 font-serif text-2xl font-semibold tracking-[0.16em] text-[#20231f] sm:text-3xl" aria-label="Maison Étoile, página de inicio">MAISON ÉTOILE<span class="text-[#9a593d]">.</span></a>
+
+          <form action="catalog.html" method="get" role="search" class="order-3 flex w-full items-center border-b border-[#77766f] py-2 sm:order-2 sm:ml-auto sm:w-56 lg:ml-10 lg:w-72">
+            <label for="busqueda" class="sr-only">Buscar productos</label>
+            <input id="busqueda" name="q" type="search" placeholder="Buscar prendas…" class="min-w-0 flex-1 bg-transparent text-sm text-[#20231f] placeholder:text-[#595b55] focus:outline-none" aria-label="Buscar prendas">
+            <button type="submit" class="ml-2 rounded px-2 py-1 text-sm font-medium text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]" aria-label="Enviar búsqueda">Buscar</button>
+          </form>
+
+          <nav aria-label="Cuenta de usuario" class="order-2 flex items-center gap-4 text-sm sm:order-3">
+            <a href="checkout.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Iniciar sesión</a>
+            <a href="cart.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span aria-label="0 artículos">(0)</span></a>
+          </nav>
+        </div>
+
+        <nav aria-label="Navegación principal" class="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#dedbd3] py-3 text-xs font-semibold uppercase tracking-[0.12em] sm:gap-x-8 sm:text-sm">
+          <a href="index.html" aria-current="page" class="rounded-sm py-1 text-[#20231f] underline decoration-[#9a593d] decoration-2 underline-offset-8 focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Inicio</a>
+          <a href="catalog.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Catálogo</a>
+          <a href="product.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Prendas</a>
+          <a href="cart.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Carrito</a>
+          <a href="checkout.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Finalizar compra</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section aria-labelledby="hero-titulo" class="mx-auto max-w-[1440px] px-4 pt-5 sm:px-6 sm:pt-8 lg:px-10">
+        <div class="relative isolate flex min-h-[520px] items-end overflow-hidden bg-[#353a35] sm:min-h-[590px] lg:min-h-[650px]">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=2200&q=90" alt="Modelo con prendas de tonos neutros en una calle parisina" class="absolute inset-0 -z-20 h-full w-full object-cover object-center">
+          <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#171b18]/75 via-[#171b18]/35 to-transparent" aria-hidden="true"></div>
+          <div class="max-w-2xl px-6 py-12 text-white sm:px-12 sm:py-16 lg:px-16 lg:py-20">
+            <p class="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-white sm:text-sm">Colección otoño · París, 2026</p>
+            <h1 id="hero-titulo" class="max-w-xl font-serif text-4xl leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">Vestir sin prisa.</h1>
+            <p class="mt-5 max-w-lg text-base leading-7 text-white sm:text-lg">Piezas esenciales, tejidos nobles y la belleza de lo cotidiano. Una nueva mirada al guardarropa de siempre.</p>
+            <a href="catalog.html" class="mt-8 inline-flex min-h-12 items-center justify-center bg-white px-7 py-3 text-sm font-semibold text-[#20231f] transition hover:bg-[#eee9df] focus:outline-2 focus:outline-offset-4 focus:outline-white">Descubrir la colección <span class="ml-3" aria-hidden="true">→</span></a>
+          </div>
+          <p class="absolute bottom-5 right-5 hidden text-xs font-medium uppercase tracking-[0.18em] text-white sm:block">Hecho para durar · París</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="nuevos-titulo" class="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
+        <div class="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#73513f]">Acaban de llegar</p>
+            <h2 id="nuevos-titulo" class="font-serif text-3xl tracking-tight sm:text-4xl">Nuevos lanzamientos</h2>
+          </div>
+          <a href="catalog.html" class="text-sm font-semibold text-[#20231f] underline decoration-[#9a593d] underline-offset-4 hover:text-[#73513f] focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Ver todo <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:gap-5 sm:px-0" aria-label="Productos nuevos">
+          <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+            <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+              <div class="relative aspect-[4/5] overflow-hidden bg-[#e7e3da]"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=85" alt="Chaqueta de corte relajado en color arena" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#f7f5f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#20231f]">Nuevo</span></div>
+              <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Chaqueta Sacha</h3><p class="mt-1 text-sm text-[#595b55]">Lino lavado · Arena</p></div><p class="shrink-0 text-sm font-semibold">189 €</p></div>
+            </a>
+          </li>
+          <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+            <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+              <div class="relative aspect-[4/5] overflow-hidden bg-[#e7e3da]"><img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=85" alt="Camisa blanca de algodón sobre fondo claro" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#f7f5f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#20231f]">Nuevo</span></div>
+              <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Camisa Camille</h3><p class="mt-1 text-sm text-[#595b55]">Algodón orgánico · Marfil</p></div><p class="shrink-0 text-sm font-semibold">115 €</p></div>
+            </a>
+          </li>
+          <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+            <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+              <div class="relative aspect-[4/5] overflow-hidden bg-[#e7e3da]"><img src="https://images.unsplash.com/photo-1548624149-f5a1e0f5a2f8?auto=format&fit=crop&w=800&q=85" alt="Pantalón recto de vestir en tono oscuro" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#f7f5f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#20231f]">Nuevo</span></div>
+              <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Pantalón Marcel</h3><p class="mt-1 text-sm text-[#595b55]">Sarga fluida · Carbón</p></div><p class="shrink-0 text-sm font-semibold">145 €</p></div>
+            </a>
+          </li>
+          <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+            <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+              <div class="relative aspect-[4/5] overflow-hidden bg-[#e7e3da]"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85" alt="Bolso pequeño de piel color coñac" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#f7f5f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#20231f]">Nuevo</span></div>
+              <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Bolso Louise</h3><p class="mt-1 text-sm text-[#595b55]">Piel responsable · Cognac</p></div><p class="shrink-0 text-sm font-semibold">220 €</p></div>
+            </a>
+          </li>
+        </ul>
+        <p class="mt-1 text-xs text-[#595b55] sm:hidden">Desliza para descubrir más productos <span aria-hidden="true">→</span></p>
+      </section>
+
+      <section aria-labelledby="ventas-titulo" class="bg-[#eae7df]">
+        <div class="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
+          <div class="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
+            <div>
+              <p class="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#73513f]">Favoritos de la maison</p>
+              <h2 id="ventas-titulo" class="font-serif text-3xl tracking-tight sm:text-4xl">Más vendidos</h2>
+            </div>
+            <a href="catalog.html" class="text-sm font-semibold text-[#20231f] underline decoration-[#9a593d] underline-offset-4 hover:text-[#73513f] focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Ver todo <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:gap-5 sm:px-0" aria-label="Productos más vendidos">
+            <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+              <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+                <div class="relative aspect-[4/5] overflow-hidden bg-[#d8d2c8]"><img src="https://images.unsplash.com/photo-1548126032-079a0fb0099d?auto=format&fit=crop&w=800&q=85" alt="Abrigo largo clásico en color camel" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#20231f] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Favorito</span></div>
+                <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Abrigo Étienne</h3><p class="mt-1 text-sm text-[#454740]">Lana reciclada · Camel</p></div><p class="shrink-0 text-sm font-semibold">320 €</p></div>
+              </a>
+            </li>
+            <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+              <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+                <div class="relative aspect-[4/5] overflow-hidden bg-[#d8d2c8]"><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=85" alt="Vaqueros de corte recto en azul oscuro" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#20231f] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Favorito</span></div>
+                <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Denim Anaïs</h3><p class="mt-1 text-sm text-[#454740]">Denim regenerativo · Índigo</p></div><p class="shrink-0 text-sm font-semibold">138 €</p></div>
+              </a>
+            </li>
+            <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+              <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+                <div class="relative aspect-[4/5] overflow-hidden bg-[#d8d2c8]"><img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85" alt="Jersey de punto suave en color crema" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#20231f] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Favorito</span></div>
+                <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Jersey Colette</h3><p class="mt-1 text-sm text-[#454740]">Mezcla de alpaca · Crudo</p></div><p class="shrink-0 text-sm font-semibold">175 €</p></div>
+              </a>
+            </li>
+            <li class="w-[78vw] max-w-[300px] shrink-0 snap-start sm:w-[calc((100%-2.5rem)/3)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]">
+              <a href="product.html" class="group block rounded-sm focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">
+                <div class="relative aspect-[4/5] overflow-hidden bg-[#d8d2c8]"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85" alt="Conjunto de moda urbana de inspiración francesa" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute left-3 top-3 bg-[#20231f] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Favorito</span></div>
+                <div class="flex items-start justify-between gap-3 py-4"><div><h3 class="font-medium">Vestido Simone</h3><p class="mt-1 text-sm text-[#454740]">Viscosa responsable · Negro</p></div><p class="shrink-0 text-sm font-semibold">198 €</p></div>
+              </a>
+            </li>
+          </ul>
+          <p class="mt-1 text-xs text-[#454740] sm:hidden">Desliza para descubrir más productos <span aria-hidden="true">→</span></p>
+        </div>
+      </section>
+
+      <section aria-labelledby="manifiesto-titulo" class="mx-auto max-w-[1440px] px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-10">
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#73513f]">Nuestra manera de vestir</p>
+        <h2 id="manifiesto-titulo" class="font-serif text-3xl leading-tight sm:text-5xl">Menos, mejor. <span class="italic">Por más tiempo.</span></h2>
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#454740]">Diseñamos en París y elegimos cada material pensando en lo que viene después. Prendas que acompañan tu vida, no solo una temporada.</p>
+      </section>
+    </main>
+
+    <footer class="bg-[#20231f] text-white">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 sm:py-16 lg:grid-cols-4 lg:px-10">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.14em] text-white" aria-label="Maison Étoile, página de inicio">MAISON ÉTOILE<span class="text-[#e0a184]">.</span></a>
+          <p class="mt-4 max-w-xs text-sm leading-6 text-[#e2e1dc]">Un guardarropa consciente, inspirado en el ritmo y la elegancia de París.</p>
+        </div>
+        <nav aria-label="Categorías del catálogo">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Categorías</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="catalog.html?categoria=calzado" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Calzado</a></li>
+            <li><a href="catalog.html?categoria=camisas" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Camisas</a></li>
+            <li><a href="catalog.html?categoria=pantalones" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Pantalones</a></li>
+            <li><a href="catalog.html?categoria=accesorios" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Accesorios</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Información legal y sobre la marca">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Maison Étoile</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="terms.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Términos y condiciones</a></li>
+            <li><a href="privacy.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Política de privacidad</a></li>
+            <li><a href="about.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Sobre la marca</a></li>
+          </ul>
+        </nav>
+        <address class="not-italic">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Contacto</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="mailto:bonjour@maison-etoile.example" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">bonjour@maison-etoile.example</a></li>
+            <li><a href="tel:+33142601234" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">+33 1 42 60 12 34</a></li>
+            <li>12 rue des Archives, París</li>
+          </ul>
+        </address>
+      </div>
+      <div class="border-t border-white/20">
+        <div class="mx-auto flex max-w-[1440px] flex-col gap-2 px-4 py-5 text-xs text-[#e2e1dc] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-10">
+          <p>© 2026 Maison Étoile. Todos los derechos reservados.</p>
+          <p>Diseñado para durar, desde París.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
