@@ -40,7 +40,7 @@
 
           <nav aria-label="Cuenta de usuario" class="order-2 flex items-center gap-4 text-sm sm:order-3">
             <a href="checkout.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Iniciar sesión</a>
-            <a href="cart.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span aria-label="0 artículos">(0)</span></a>
+            <a href="cart.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span data-cart-count aria-label="0 artículos">(0)</span></a>
           </nav>
         </div>
 
@@ -191,5 +191,17 @@
         </div>
       </div>
     </footer>
+    <script>
+      (() => {
+        try {
+          const cart = JSON.parse(localStorage.getItem('maison-etoile-cart') || '[]');
+          const count = Array.isArray(cart) ? cart.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0) : 0;
+          document.querySelectorAll('[data-cart-count]').forEach((badge) => {
+            badge.textContent = `(${count})`;
+            badge.setAttribute('aria-label', `${count} artículos`);
+          });
+        } catch { /* El indicador se mantiene en cero si el almacenamiento no está disponible. */ }
+      })();
+    </script>
   </body>
 </html>
