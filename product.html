@@ -49,7 +49,7 @@
           </form>
           <nav aria-label="Cuenta de usuario" class="order-2 flex items-center gap-4 text-sm sm:order-3">
             <a href="checkout.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Iniciar sesión</a>
-            <a href="cart.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span aria-label="0 artículos">(0)</span></a>
+            <a href="cart.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span data-cart-count aria-label="0 artículos">(0)</span></a>
           </nav>
         </div>
         <nav aria-label="Navegación principal" class="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#dedbd3] py-3 text-xs font-semibold uppercase tracking-[0.12em] sm:gap-x-8 sm:text-sm">
@@ -93,6 +93,8 @@
             <input type="hidden" name="producto" value="ME-CH-SAC-026">
             <input type="hidden" name="nombre" value="Chaqueta Sacha">
             <input type="hidden" name="precio" value="189">
+            <input type="hidden" name="slug" value="chaqueta-sacha">
+            <input type="hidden" name="imagen" value="">
             <div>
               <div class="mb-2 flex items-center justify-between gap-3">
                 <label for="talla" class="text-sm font-semibold">Talla <span aria-hidden="true">*</span></label>
@@ -293,6 +295,35 @@
         form.querySelector('[name="producto"]').value = product.ref;
         form.querySelector('[name="nombre"]').value = product.name;
         form.querySelector('[name="precio"]').value = product.price;
+        form.querySelector('[name="slug"]').value = selectedSlug;
+        form.querySelector('[name="imagen"]').value = imageUrl.replace('w=1200', 'w=300');
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const quantity = Math.max(1, Math.min(10, Number(form.querySelector('[name="cantidad"]').value) || 1));
+          const size = sizeSelect.value || 'Talla única';
+          let cart = [];
+          try {
+            cart = JSON.parse(localStorage.getItem('maison-etoile-cart') || '[]');
+            if (!Array.isArray(cart)) cart = [];
+          } catch {
+            cart = [];
+          }
+          const existing = cart.find((item) => item.slug === selectedSlug && item.size === size);
+          if (existing) existing.quantity = Math.min(99, Number(existing.quantity || 0) + quantity);
+          else cart.push({
+            slug: selectedSlug,
+            ref: product.ref,
+            name: product.name,
+            price: product.price,
+            image: imageUrl.replace('w=1200', 'w=300'),
+            imageAlt: product.imageAlt,
+            size,
+            quantity
+          });
+          localStorage.setItem('maison-etoile-cart', JSON.stringify(cart));
+          window.location.href = 'cart.html';
+        });
         const structuredData = {
           '@context': 'https://schema.org',
           '@type': 'Product',
@@ -318,6 +349,18 @@
           const cardName = link.querySelector('h3')?.textContent.trim();
           if (cardName) link.href = `product.html?producto=${encodeURIComponent(slugify(cardName))}`;
         });
+      })();
+    </script>
+    <script>
+      (() => {
+        try {
+          const cart = JSON.parse(localStorage.getItem('maison-etoile-cart') || '[]');
+          const count = Array.isArray(cart) ? cart.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0) : 0;
+          document.querySelectorAll('[data-cart-count]').forEach((badge) => {
+            badge.textContent = `(${count})`;
+            badge.setAttribute('aria-label', `${count} artículos`);
+          });
+        } catch { /* El indicador se mantiene en cero si el almacenamiento no está disponible. */ }
       })();
     </script>
   </body>

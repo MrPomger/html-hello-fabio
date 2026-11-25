@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5f0">
+    <meta name="description" content="Revisa los artículos de tu bolsa Maison Étoile antes de finalizar tu compra.">
+    <title>Tu carrito — Maison Étoile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen overflow-x-hidden bg-[#f7f5f0] font-sans text-[#20231f] antialiased">
+    <a href="#contenido" class="sr-only z-50 rounded bg-white p-3 text-[#20231f] focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Saltar al contenido</a>
+
+    <header class="border-b border-[#dedbd3] bg-[#f7f5f0]">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+        <div class="flex flex-wrap items-center justify-between gap-x-5 gap-y-3 py-4 lg:py-5">
+          <a href="index.html" class="order-1 font-serif text-2xl font-semibold tracking-[0.16em] text-[#20231f] sm:text-3xl" aria-label="Maison Étoile, página de inicio">MAISON ÉTOILE<span class="text-[#9a593d]">.</span></a>
+          <form action="catalog.html" method="get" role="search" class="order-3 flex w-full items-center border-b border-[#77766f] py-2 sm:order-2 sm:ml-auto sm:w-56 lg:ml-10 lg:w-72">
+            <label for="busqueda" class="sr-only">Buscar productos</label>
+            <input id="busqueda" name="q" type="search" placeholder="Buscar prendas…" class="min-w-0 flex-1 bg-transparent text-sm text-[#20231f] placeholder:text-[#595b55] focus:outline-none" aria-label="Buscar prendas">
+            <button type="submit" class="ml-2 rounded px-2 py-1 text-sm font-medium text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]" aria-label="Enviar búsqueda">Buscar</button>
+          </form>
+          <nav aria-label="Cuenta de usuario" class="order-2 flex items-center gap-4 text-sm sm:order-3">
+            <a href="checkout.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Iniciar sesión</a>
+            <a href="cart.html" aria-current="page" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span aria-label="3 artículos">(3)</span></a>
+          </nav>
+        </div>
+        <nav aria-label="Navegación principal" class="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#dedbd3] py-3 text-xs font-semibold uppercase tracking-[0.12em] sm:gap-x-8 sm:text-sm">
+          <a href="index.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Inicio</a>
+          <a href="catalog.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Catálogo</a>
+          <a href="product.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Prendas</a>
+          <a href="cart.html" aria-current="page" class="rounded-sm py-1 text-[#20231f] underline decoration-[#9a593d] decoration-2 underline-offset-8 focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Carrito</a>
+          <a href="checkout.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Finalizar compra</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+      <nav aria-label="Ruta de navegación" class="py-5 text-xs text-[#595b55] sm:py-7 sm:text-sm">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="index.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Inicio</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="font-medium text-[#20231f]">Carrito</li>
+        </ol>
+      </nav>
+
+      <section aria-labelledby="carrito-titulo" class="pb-16 sm:pb-20">
+        <header class="mb-8 border-b border-[#dedbd3] pb-5 sm:mb-10 sm:flex sm:items-end sm:justify-between">
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a593d]">Maison Étoile</p>
+            <h1 id="carrito-titulo" class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Tu carrito</h1>
+          </div>
+          <p id="cart-header-count" class="mt-3 text-sm text-[#595b55] sm:mt-0" aria-live="polite">3 artículos seleccionados</p>
+        </header>
+
+        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12">
+          <section aria-labelledby="articulos-titulo" class="min-w-0">
+            <h2 id="articulos-titulo" class="sr-only">Artículos en tu carrito</h2>
+            <ul id="cart-items" class="divide-y divide-[#dedbd3] border-y border-[#dedbd3]" aria-label="Productos en el carrito">
+              <li class="py-5 sm:py-6">
+                <article aria-labelledby="producto-sacha" class="grid min-w-0 grid-cols-[88px_minmax(0,1fr)] gap-4 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-5">
+                  <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=300&q=80" alt="Chaqueta Sacha de lino color arena" width="300" height="375" class="aspect-[4/5] w-full bg-[#e7e3da] object-cover">
+                  <div class="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                    <div class="min-w-0">
+                      <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#595b55]">Chaquetas</p>
+                      <h3 id="producto-sacha" class="font-serif text-lg sm:text-xl">Chaqueta Sacha</h3>
+                      <p class="mt-1 text-sm text-[#595b55]">Arena · Talla M</p>
+                      <p class="mt-2 text-sm font-medium">189,00 € <span class="font-normal text-[#595b55]">/ unidad</span></p>
+                    </div>
+                    <div class="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
+                      <label class="flex items-center gap-2 text-xs text-[#595b55]" for="cantidad-sacha">Cantidad
+                        <input id="cantidad-sacha" type="number" min="1" value="1" class="h-10 w-16 rounded-sm border border-[#aaa79e] bg-transparent px-2 text-sm text-[#20231f] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]" aria-label="Cantidad de Chaqueta Sacha">
+                      </label>
+                      <p class="text-right text-sm font-semibold sm:text-base"><span class="sr-only">Total: </span>189,00 €</p>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li class="py-5 sm:py-6">
+                <article aria-labelledby="producto-camille" class="grid min-w-0 grid-cols-[88px_minmax(0,1fr)] gap-4 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-5">
+                  <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=300&q=80" alt="Camisa Camille de algodón color marfil" width="300" height="375" loading="lazy" class="aspect-[4/5] w-full bg-[#e7e3da] object-cover">
+                  <div class="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                    <div class="min-w-0">
+                      <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#595b55]">Camisas</p>
+                      <h3 id="producto-camille" class="font-serif text-lg sm:text-xl">Camisa Camille</h3>
+                      <p class="mt-1 text-sm text-[#595b55]">Marfil · Talla S</p>
+                      <p class="mt-2 text-sm font-medium">115,00 € <span class="font-normal text-[#595b55]">/ unidad</span></p>
+                    </div>
+                    <div class="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
+                      <label class="flex items-center gap-2 text-xs text-[#595b55]" for="cantidad-camille">Cantidad
+                        <input id="cantidad-camille" type="number" min="1" value="2" class="h-10 w-16 rounded-sm border border-[#aaa79e] bg-transparent px-2 text-sm text-[#20231f] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]" aria-label="Cantidad de Camisa Camille">
+                      </label>
+                      <p class="text-right text-sm font-semibold sm:text-base"><span class="sr-only">Total: </span>230,00 €</p>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li class="py-5 sm:py-6">
+                <article aria-labelledby="producto-louise" class="grid min-w-0 grid-cols-[88px_minmax(0,1fr)] gap-4 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-5">
+                  <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300&q=80" alt="Bolso Louise de piel color coñac" width="300" height="375" loading="lazy" class="aspect-[4/5] w-full bg-[#e7e3da] object-cover">
+                  <div class="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                    <div class="min-w-0">
+                      <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#595b55]">Accesorios</p>
+                      <h3 id="producto-louise" class="font-serif text-lg sm:text-xl">Bolso Louise</h3>
+                      <p class="mt-1 text-sm text-[#595b55]">Coñac · Talla única</p>
+                      <p class="mt-2 text-sm font-medium">220,00 € <span class="font-normal text-[#595b55]">/ unidad</span></p>
+                    </div>
+                    <div class="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
+                      <label class="flex items-center gap-2 text-xs text-[#595b55]" for="cantidad-louise">Cantidad
+                        <input id="cantidad-louise" type="number" min="1" value="1" class="h-10 w-16 rounded-sm border border-[#aaa79e] bg-transparent px-2 text-sm text-[#20231f] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]" aria-label="Cantidad de Bolso Louise">
+                      </label>
+                      <p class="text-right text-sm font-semibold sm:text-base"><span class="sr-only">Total: </span>220,00 €</p>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <p id="cart-item-count" class="text-sm text-[#595b55]" aria-live="polite"></p>
+              <button id="clear-cart" type="button" class="rounded-sm text-sm font-medium text-[#73513f] underline underline-offset-4 hover:text-[#20231f] focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Limpiar carrito</button>
+            </div>
+            <div id="empty-cart" class="hidden border-y border-[#dedbd3] py-10 text-center" role="status">
+              <p class="text-sm text-[#595b55]">Tu carrito está vacío. Explora el catálogo para añadir prendas.</p>
+              <button id="load-examples" type="button" class="mt-4 rounded-sm text-sm font-semibold text-[#20231f] underline underline-offset-4 hover:text-[#73513f] focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Cargar los 3 productos de ejemplo</button>
+            </div>
+            <a href="catalog.html" class="mt-5 inline-flex rounded-sm text-sm font-medium text-[#20231f] underline underline-offset-4 hover:text-[#9a593d] focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Seguir comprando</a>
+          </section>
+
+          <aside aria-labelledby="resumen-titulo" class="min-w-0 border border-[#dedbd3] bg-white/40 p-5 sm:p-7 lg:sticky lg:top-6">
+            <h2 id="resumen-titulo" class="font-serif text-2xl">Resumen del pedido</h2>
+            <dl class="mt-6 space-y-4 text-sm">
+              <div class="flex items-center justify-between gap-4"><dt class="text-[#595b55]">Subtotal</dt><dd id="cart-subtotal" class="font-medium">639,00 €</dd></div>
+              <div class="flex items-center justify-between gap-4"><dt class="text-[#595b55]">Impuestos (20%)</dt><dd id="cart-tax" class="font-medium">127,80 €</dd></div>
+              <div class="flex items-center justify-between gap-4 border-t border-[#dedbd3] pt-4 text-base"><dt class="font-semibold">Total</dt><dd id="cart-total" class="font-semibold">766,80 €</dd></div>
+            </dl>
+            <p class="mt-4 text-xs leading-5 text-[#595b55]">Impuestos calculados al 20%. Los gastos de envío se calcularán al finalizar la compra.</p>
+            <a id="checkout-link" href="checkout.html" class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-[#20231f] px-6 text-sm font-semibold text-white hover:bg-[#3b4039] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Comprar</a>
+            <p class="mt-4 text-center text-xs leading-5 text-[#595b55]">Pago seguro · Envío gratuito a partir de 150 €</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#20231f] text-white">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 sm:py-16 lg:grid-cols-4 lg:px-10">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.14em] text-white" aria-label="Maison Étoile, página de inicio">MAISON ÉTOILE<span class="text-[#e0a184]">.</span></a>
+          <p class="mt-4 max-w-xs text-sm leading-6 text-[#e2e1dc]">Un guardarropa consciente, inspirado en el ritmo y la elegancia de París.</p>
+        </div>
+        <nav aria-label="Categorías del catálogo">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Categorías</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="catalog.html?categoria=calzado" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Calzado</a></li>
+            <li><a href="catalog.html?categoria=camisas" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Camisas</a></li>
+            <li><a href="catalog.html?categoria=pantalones" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Pantalones</a></li>
+            <li><a href="catalog.html?categoria=accesorios" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Accesorios</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Información legal y sobre la marca">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Maison Étoile</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="terms.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Términos y condiciones</a></li>
+            <li><a href="privacy.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Política de privacidad</a></li>
+            <li><a href="about.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Sobre la marca</a></li>
+          </ul>
+        </nav>
+        <address class="not-italic">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Contacto</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="mailto:bonjour@maison-etoile.example" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">bonjour@maison-etoile.example</a></li>
+            <li><a href="tel:+33142601234" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">+33 1 42 60 12 34</a></li>
+            <li>12 rue des Archives, París</li>
+          </ul>
+        </address>
+      </div>
+      <div class="border-t border-white/20">
+        <div class="mx-auto flex max-w-[1440px] flex-col gap-2 px-4 py-5 text-xs text-[#e2e1dc] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-10">
+          <p>© 2026 Maison Étoile. Todos los derechos reservados.</p>
+          <p>Diseñado para durar, desde París.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (() => {
+        const storageKey = 'maison-etoile-cart';
+        const examples = [
+          { slug: 'chaqueta-sacha', ref: 'ME-CH-SAC-026', name: 'Chaqueta Sacha', price: 189, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=300&q=80', imageAlt: 'Chaqueta Sacha de lino color arena', size: 'M', quantity: 1 },
+          { slug: 'camisa-camille', ref: 'ME-CA-CAM-026', name: 'Camisa Camille', price: 115, image: 'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=300&q=80', imageAlt: 'Camisa Camille de algodón color marfil', size: 'S', quantity: 2 },
+          { slug: 'bolso-louise', ref: 'ME-AC-LOU-026', name: 'Bolso Louise', price: 220, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300&q=80', imageAlt: 'Bolso Louise de piel color coñac', size: 'Talla única', quantity: 1 }
+        ];
+        const list = document.getElementById('cart-items');
+        const emptyMessage = document.getElementById('empty-cart');
+        const countText = document.getElementById('cart-item-count');
+        const checkoutLink = document.getElementById('checkout-link');
+        const money = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+
+        function getCart() {
+          try {
+            const cart = JSON.parse(localStorage.getItem(storageKey) || 'null');
+            return Array.isArray(cart) ? cart : [];
+          } catch {
+            return [];
+          }
+        }
+
+        const forceExamples = new URLSearchParams(window.location.search).get('demo') === '1';
+        if (forceExamples || localStorage.getItem(storageKey) === null) {
+          localStorage.setItem(storageKey, JSON.stringify(examples));
+          if (forceExamples) window.history.replaceState({}, '', window.location.pathname);
+        }
+
+        function textElement(tag, text, className) {
+          const element = document.createElement(tag);
+          element.textContent = text;
+          if (className) element.className = className;
+          return element;
+        }
+
+        function render() {
+          const cart = getCart();
+          list.replaceChildren();
+          let subtotal = 0;
+          let units = 0;
+
+          cart.forEach((item, index) => {
+            const price = Math.max(0, Number(item.price) || 0);
+            const quantity = Math.max(1, Number(item.quantity) || 1);
+            subtotal += price * quantity;
+            units += quantity;
+
+            const row = document.createElement('li');
+            row.className = 'py-5 sm:py-6';
+            const article = document.createElement('article');
+            article.className = 'grid min-w-0 grid-cols-[88px_minmax(0,1fr)] gap-4 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-5';
+            article.setAttribute('aria-label', item.name);
+            const image = document.createElement('img');
+            image.src = item.image;
+            image.alt = item.imageAlt || item.name;
+            image.width = 300;
+            image.height = 375;
+            image.className = 'aspect-[4/5] w-full bg-[#e7e3da] object-cover';
+
+            const content = document.createElement('div');
+            content.className = 'flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center';
+            const info = document.createElement('div');
+            info.className = 'min-w-0';
+            info.append(
+              textElement('p', item.ref || 'Maison Étoile', 'mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#595b55]'),
+              textElement('h3', item.name, 'font-serif text-lg sm:text-xl'),
+              textElement('p', item.size === 'Talla única' ? 'Talla única' : `Talla ${item.size || '—'}`, 'mt-1 text-sm text-[#595b55]'),
+              textElement('p', `${money.format(price)} / unidad`, 'mt-2 text-sm font-medium')
+            );
+
+            const controls = document.createElement('div');
+            controls.className = 'flex items-center justify-between gap-4 sm:flex-col sm:items-end';
+            const quantityLabel = textElement('label', 'Cantidad', 'flex items-center gap-2 text-xs text-[#595b55]');
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.min = '1';
+            quantityInput.max = '99';
+            quantityInput.value = String(quantity);
+            quantityInput.className = 'h-10 w-16 rounded-sm border border-[#aaa79e] bg-transparent px-2 text-sm text-[#20231f] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]';
+            quantityInput.setAttribute('aria-label', `Cantidad de ${item.name}`);
+            quantityInput.addEventListener('change', () => {
+              const updated = getCart();
+              updated[index].quantity = Math.max(1, Math.min(99, Number(quantityInput.value) || 1));
+              localStorage.setItem(storageKey, JSON.stringify(updated));
+              render();
+            });
+            quantityLabel.append(quantityInput);
+            controls.append(quantityLabel, textElement('p', money.format(price * quantity), 'text-right text-sm font-semibold sm:text-base'));
+
+            const removeButton = textElement('button', 'Eliminar', 'rounded-sm text-xs font-medium text-[#73513f] underline underline-offset-4 hover:text-[#20231f] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]');
+            removeButton.type = 'button';
+            removeButton.setAttribute('aria-label', `Eliminar ${item.name} del carrito`);
+            removeButton.addEventListener('click', () => {
+              const updated = getCart();
+              updated.splice(index, 1);
+              localStorage.setItem(storageKey, JSON.stringify(updated));
+              render();
+            });
+            controls.append(removeButton);
+            content.append(info, controls);
+            article.append(image, content);
+            row.append(article);
+            list.append(row);
+          });
+
+          const tax = subtotal * 0.2;
+          document.getElementById('cart-subtotal').textContent = money.format(subtotal);
+          document.getElementById('cart-tax').textContent = money.format(tax);
+          document.getElementById('cart-total').textContent = money.format(subtotal + tax);
+          countText.textContent = `${units} ${units === 1 ? 'artículo' : 'artículos'} en tu carrito`;
+          document.getElementById('cart-header-count').textContent = `${units} ${units === 1 ? 'artículo' : 'artículos'} seleccionados`;
+          emptyMessage.classList.toggle('hidden', cart.length > 0);
+          list.classList.toggle('hidden', cart.length === 0);
+          checkoutLink.classList.toggle('pointer-events-none', cart.length === 0);
+          checkoutLink.classList.toggle('opacity-50', cart.length === 0);
+          checkoutLink.setAttribute('aria-disabled', String(cart.length === 0));
+          checkoutLink.tabIndex = cart.length === 0 ? -1 : 0;
+          document.querySelectorAll('a[aria-label="Ver bolsa de compra"] span').forEach((badge) => {
+            badge.textContent = `(${units})`;
+            badge.setAttribute('aria-label', `${units} artículos`);
+          });
+        }
+
+        document.getElementById('clear-cart').addEventListener('click', () => {
+          localStorage.setItem(storageKey, JSON.stringify([]));
+          render();
+        });
+        document.getElementById('load-examples').addEventListener('click', () => {
+          localStorage.setItem(storageKey, JSON.stringify(examples));
+          render();
+        });
+        checkoutLink.addEventListener('click', (event) => {
+          if (getCart().length === 0) event.preventDefault();
+        });
+        render();
+      })();
+    </script>
+  </body>
+</html>
