@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5f0">
+    <meta name="description" content="Completa tus datos de entrega y pago para finalizar tu compra en Maison Étoile.">
+    <title>Finalizar compra — Maison Étoile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen overflow-x-hidden bg-[#f7f5f0] font-sans text-[#20231f] antialiased">
+    <a href="#contenido" class="sr-only z-50 rounded bg-white p-3 text-[#20231f] focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Saltar al contenido</a>
+
+    <header class="border-b border-[#dedbd3] bg-[#f7f5f0]">
+      <div class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+        <div class="flex flex-wrap items-center justify-between gap-x-5 gap-y-3 py-4 lg:py-5">
+          <a href="index.html" class="order-1 font-serif text-2xl font-semibold tracking-[0.16em] text-[#20231f] sm:text-3xl" aria-label="Maison Étoile, página de inicio">MAISON ÉTOILE<span class="text-[#9a593d]">.</span></a>
+          <form action="catalog.html" method="get" role="search" class="order-3 flex w-full items-center border-b border-[#77766f] py-2 sm:order-2 sm:ml-auto sm:w-56 lg:ml-10 lg:w-72">
+            <label for="busqueda" class="sr-only">Buscar productos</label>
+            <input id="busqueda" name="q" type="search" placeholder="Buscar prendas…" class="min-w-0 flex-1 bg-transparent text-sm text-[#20231f] placeholder:text-[#595b55] focus:outline-none" aria-label="Buscar prendas">
+            <button type="submit" class="ml-2 rounded px-2 py-1 text-sm font-medium text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]" aria-label="Enviar búsqueda">Buscar</button>
+          </form>
+          <nav aria-label="Cuenta de usuario" class="order-2 flex items-center gap-4 text-sm sm:order-3">
+            <a href="checkout.html" aria-current="page" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Iniciar sesión</a>
+            <a href="cart.html" class="rounded-sm font-medium text-[#20231f] underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]" aria-label="Ver bolsa de compra">Bolsa <span aria-label="0 artículos">(0)</span></a>
+          </nav>
+        </div>
+        <nav aria-label="Navegación principal" class="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#dedbd3] py-3 text-xs font-semibold uppercase tracking-[0.12em] sm:gap-x-8 sm:text-sm">
+          <a href="index.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Inicio</a>
+          <a href="catalog.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Catálogo</a>
+          <a href="product.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Prendas</a>
+          <a href="cart.html" class="rounded-sm py-1 text-[#454740] underline-offset-8 hover:text-[#20231f] hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Carrito</a>
+          <a href="checkout.html" aria-current="page" class="rounded-sm py-1 text-[#20231f] underline decoration-[#9a593d] decoration-2 underline-offset-8 focus:outline-2 focus:outline-offset-4 focus:outline-[#20231f]">Finalizar compra</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+      <nav aria-label="Ruta de navegación" class="py-5 text-xs text-[#595b55] sm:py-7 sm:text-sm">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="index.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Inicio</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="cart.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Carrito</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="font-medium text-[#20231f]">Finalizar compra</li>
+        </ol>
+      </nav>
+
+      <section aria-labelledby="checkout-titulo" class="pb-16 sm:pb-20">
+        <header class="mb-8 border-b border-[#dedbd3] pb-5 sm:mb-10">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a593d]">Un último paso</p>
+          <h1 id="checkout-titulo" class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Finalizar compra</h1>
+          <p class="mt-3 max-w-2xl text-sm leading-6 text-[#454740]">Completa los tres pasos para preparar tu pedido. Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
+        </header>
+
+        <ol id="checkout-progress" aria-label="Pasos del pago" class="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+          <li data-progress-step="1" aria-current="step" class="flex items-center gap-3 border border-[#9a593d] bg-white/50 p-4">
+            <span data-step-number class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#20231f] text-sm font-semibold text-white" aria-hidden="true">1</span>
+            <span class="text-sm font-semibold">Datos personales</span>
+          </li>
+          <li data-progress-step="2" class="flex items-center gap-3 border border-[#dedbd3] p-4">
+            <span data-step-number class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#77766f] text-sm font-semibold" aria-hidden="true">2</span>
+            <span class="text-sm font-semibold">Dirección de entrega</span>
+          </li>
+          <li data-progress-step="3" class="flex items-center gap-3 border border-[#dedbd3] p-4">
+            <span data-step-number class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#77766f] text-sm font-semibold" aria-hidden="true">3</span>
+            <span class="text-sm font-semibold">Pago con tarjeta</span>
+          </li>
+        </ol>
+
+        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12">
+          <form id="checkout-form" action="#" method="post" class="min-w-0 space-y-6" aria-describedby="pago-seguro-nota">
+            <fieldset data-checkout-step="1" class="min-w-0 border border-[#dedbd3] p-4 sm:p-6 lg:p-8">
+              <legend class="px-2 font-serif text-xl sm:text-2xl">1. Datos personales</legend>
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="nombre" class="mb-2 block text-sm font-semibold">Nombre <span aria-hidden="true">*</span></label>
+                  <input id="nombre" name="nombre" type="text" autocomplete="given-name" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="apellidos" class="mb-2 block text-sm font-semibold">Apellidos <span aria-hidden="true">*</span></label>
+                  <input id="apellidos" name="apellidos" type="text" autocomplete="family-name" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="correo" class="mb-2 block text-sm font-semibold">Correo electrónico <span aria-hidden="true">*</span></label>
+                  <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="telefono" class="mb-2 block text-sm font-semibold">Teléfono <span aria-hidden="true">*</span></label>
+                  <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+              </div>
+              <div class="mt-6 flex justify-end">
+                <button type="button" data-next-step="2" class="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#20231f] px-7 text-sm font-semibold text-white hover:bg-[#3b4039] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Continuar a la dirección</button>
+              </div>
+            </fieldset>
+
+            <fieldset data-checkout-step="2" hidden class="min-w-0 border border-[#dedbd3] p-4 sm:p-6 lg:p-8">
+              <legend class="px-2 font-serif text-xl sm:text-2xl">2. Dirección de entrega</legend>
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                  <label for="direccion" class="mb-2 block text-sm font-semibold">Dirección <span aria-hidden="true">*</span></label>
+                  <input id="direccion" name="direccion" type="text" autocomplete="street-address" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="piso" class="mb-2 block text-sm font-semibold">Piso, puerta (opcional)</label>
+                  <input id="piso" name="piso" type="text" autocomplete="address-line2" class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="ciudad" class="mb-2 block text-sm font-semibold">Ciudad <span aria-hidden="true">*</span></label>
+                  <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="codigo-postal" class="mb-2 block text-sm font-semibold">Código postal <span aria-hidden="true">*</span></label>
+                  <input id="codigo-postal" name="codigo_postal" type="text" autocomplete="postal-code" inputmode="numeric" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="pais" class="mb-2 block text-sm font-semibold">País <span aria-hidden="true">*</span></label>
+                  <select id="pais" name="pais" autocomplete="country-name" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-[#f7f5f0] px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                    <option value="" selected disabled>Selecciona un país</option>
+                    <option value="ES">España</option>
+                    <option value="FR">Francia</option>
+                    <option value="PT">Portugal</option>
+                    <option value="IT">Italia</option>
+                    <option value="DE">Alemania</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <button type="button" data-previous-step="1" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-[#77766f] px-5 text-sm font-semibold text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Volver a datos personales</button>
+                <button type="button" data-next-step="3" class="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#20231f] px-7 text-sm font-semibold text-white hover:bg-[#3b4039] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Continuar al pago</button>
+              </div>
+            </fieldset>
+
+            <fieldset data-checkout-step="3" hidden class="min-w-0 border border-[#dedbd3] p-4 sm:p-6 lg:p-8">
+              <legend class="px-2 font-serif text-xl sm:text-2xl">3. Pago con tarjeta</legend>
+              <p id="pago-seguro-nota" class="mb-5 text-sm leading-6 text-[#595b55]">Pago seguro de demostración. No introduzcas datos reales de tarjeta: este formulario aún no procesa pagos.</p>
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                  <label for="titular" class="mb-2 block text-sm font-semibold">Nombre del titular <span aria-hidden="true">*</span></label>
+                  <input id="titular" name="titular" type="text" autocomplete="cc-name" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="numero-tarjeta" class="mb-2 block text-sm font-semibold">Número de tarjeta <span aria-hidden="true">*</span></label>
+                  <input id="numero-tarjeta" name="numero_tarjeta" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" maxlength="23" pattern="[0-9 ]{13,23}" required aria-describedby="tarjeta-ayuda" class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm tracking-[0.12em] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                  <p id="tarjeta-ayuda" class="mt-2 text-xs text-[#595b55]">Solo para mostrar el diseño; el sitio no transmite ni almacena este dato.</p>
+                </div>
+                <div>
+                  <label for="caducidad" class="mb-2 block text-sm font-semibold">Caducidad (MM/AA) <span aria-hidden="true">*</span></label>
+                  <input id="caducidad" name="caducidad" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5" pattern="(0[1-9]|1[0-2])/[0-9]{2}" required class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                </div>
+                <div>
+                  <label for="codigo-seguridad" class="mb-2 block text-sm font-semibold">Código de seguridad <span aria-hidden="true">*</span></label>
+                  <input id="codigo-seguridad" name="codigo_seguridad" type="password" inputmode="numeric" autocomplete="cc-csc" pattern="[0-9]{3,4}" maxlength="4" required aria-describedby="cvc-ayuda" class="min-h-12 w-full rounded-sm border border-[#77766f] bg-transparent px-3 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">
+                  <p id="cvc-ayuda" class="mt-2 text-xs text-[#595b55]">3 o 4 dígitos. No introduzcas datos reales.</p>
+                </div>
+              </div>
+              <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <button type="button" data-previous-step="2" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-[#77766f] px-5 text-sm font-semibold text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Volver a dirección</button>
+                <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#20231f] px-7 text-sm font-semibold text-white hover:bg-[#3b4039] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Confirmar pedido</button>
+              </div>
+            </fieldset>
+            <p id="checkout-status" class="sr-only" role="status" aria-live="polite"></p>
+            <div>
+              <a href="cart.html" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-[#77766f] px-5 text-sm font-semibold text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Volver al carrito</a>
+            </div>
+          </form>
+
+          <aside aria-labelledby="resumen-titulo" class="min-w-0 border border-[#dedbd3] bg-white/40 p-5 sm:p-7 lg:sticky lg:top-6">
+            <h2 id="resumen-titulo" class="font-serif text-2xl">Resumen de compra</h2>
+            <p class="mt-2 text-sm text-[#595b55]">Revisa tus artículos antes de confirmar.</p>
+            <dl class="mt-6 space-y-4 text-sm">
+              <div class="flex items-center justify-between gap-4"><dt class="text-[#595b55]">Subtotal</dt><dd id="checkout-subtotal" class="font-medium">0,00 €</dd></div>
+              <div class="flex items-center justify-between gap-4"><dt class="text-[#595b55]">Impuestos (20%)</dt><dd id="checkout-tax" class="font-medium">0,00 €</dd></div>
+              <div class="flex items-center justify-between gap-4 border-t border-[#dedbd3] pt-4 text-base"><dt class="font-semibold">Total</dt><dd id="checkout-total" class="font-semibold">0,00 €</dd></div>
+            </dl>
+            <a href="cart.html" class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-[#77766f] px-6 text-sm font-semibold text-[#20231f] hover:bg-[#e9e5dc] focus:outline-2 focus:outline-offset-2 focus:outline-[#20231f]">Editar carrito</a>
+            <p class="mt-4 text-xs leading-5 text-[#595b55]">El resumen se sincroniza con tu carrito. Los impuestos se calculan al 20%; el envío se calcula en el carrito.</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#20231f] text-white">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 sm:py-16 lg:grid-cols-4 lg:px-10">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.14em] text-white" aria-label="Maison Étoile, página de inicio">MAISON ÉTOILE<span class="text-[#e0a184]">.</span></a>
+          <p class="mt-4 max-w-xs text-sm leading-6 text-[#e2e1dc]">Un guardarropa consciente, inspirado en el ritmo y la elegancia de París.</p>
+        </div>
+        <nav aria-label="Categorías del catálogo">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Categorías</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="catalog.html?categoria=calzado" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Calzado</a></li>
+            <li><a href="catalog.html?categoria=camisas" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Camisas</a></li>
+            <li><a href="catalog.html?categoria=pantalones" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Pantalones</a></li>
+            <li><a href="catalog.html?categoria=accesorios" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Accesorios</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Información legal y sobre la marca">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Maison Étoile</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="terms.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Términos y condiciones</a></li>
+            <li><a href="privacy.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Política de privacidad</a></li>
+            <li><a href="about.html" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">Sobre la marca</a></li>
+          </ul>
+        </nav>
+        <address class="not-italic">
+          <h2 class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e0a184]">Contacto</h2>
+          <ul class="space-y-3 text-sm text-white">
+            <li><a href="mailto:bonjour@maison-etoile.example" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">bonjour@maison-etoile.example</a></li>
+            <li><a href="tel:+33142601234" class="underline-offset-4 hover:underline focus:outline-2 focus:outline-offset-4 focus:outline-white">+33 1 42 60 12 34</a></li>
+            <li>12 rue des Archives, París</li>
+          </ul>
+        </address>
+      </div>
+      <div class="border-t border-white/20">
+        <div class="mx-auto flex max-w-[1440px] flex-col gap-2 px-4 py-5 text-xs text-[#e2e1dc] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-10">
+          <p>© 2026 Maison Étoile. Todos los derechos reservados.</p>
+          <p>Diseñado para durar, desde París.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (() => {
+        const storageKey = 'maison-etoile-cart';
+        const form = document.getElementById('checkout-form');
+        const progressItems = [...document.querySelectorAll('[data-progress-step]')];
+        const fieldsets = [...document.querySelectorAll('[data-checkout-step]')];
+        const status = document.getElementById('checkout-status');
+        const money = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+        let currentStep = 1;
+
+        function getCart() {
+          try {
+            const cart = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            return Array.isArray(cart) ? cart : [];
+          } catch {
+            return [];
+          }
+        }
+
+        function updateSummary() {
+          const cart = getCart();
+          const subtotal = cart.reduce((sum, item) => {
+            const price = Math.max(0, Number(item.price) || 0);
+            const quantity = Math.max(1, Number(item.quantity) || 1);
+            return sum + price * quantity;
+          }, 0);
+          const tax = subtotal * 0.2;
+          document.getElementById('checkout-subtotal').textContent = money.format(subtotal);
+          document.getElementById('checkout-tax').textContent = money.format(tax);
+          document.getElementById('checkout-total').textContent = money.format(subtotal + tax);
+          const units = cart.reduce((sum, item) => sum + Math.max(1, Number(item.quantity) || 1), 0);
+          document.querySelectorAll('a[aria-label="Ver bolsa de compra"] span').forEach((badge) => {
+            badge.textContent = `(${units})`;
+            badge.setAttribute('aria-label', `${units} artículos`);
+          });
+        }
+
+        function showStep(step) {
+          currentStep = step;
+          fieldsets.forEach((fieldset) => {
+            fieldset.hidden = Number(fieldset.dataset.checkoutStep) !== step;
+          });
+          progressItems.forEach((item) => {
+            const active = Number(item.dataset.progressStep) === step;
+            item.classList.toggle('border-[#9a593d]', active);
+            item.classList.toggle('bg-white/50', active);
+            item.classList.toggle('border-[#dedbd3]', !active);
+            if (active) item.setAttribute('aria-current', 'step');
+            else item.removeAttribute('aria-current');
+
+            const number = item.querySelector('[data-step-number]');
+            number.classList.toggle('bg-[#20231f]', active);
+            number.classList.toggle('text-white', active);
+            number.classList.toggle('border', !active);
+            number.classList.toggle('border-[#77766f]', !active);
+          });
+          const heading = fieldsets.find((fieldset) => Number(fieldset.dataset.checkoutStep) === step)?.querySelector('legend');
+          if (heading) {
+            status.textContent = `Paso ${step} de 3: ${heading.textContent.replace(/^\d+\.\s*/, '')}`;
+            heading.setAttribute('tabindex', '-1');
+            heading.focus({ preventScroll: true });
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+
+        form.addEventListener('click', (event) => {
+          const nextButton = event.target.closest('[data-next-step]');
+          const previousButton = event.target.closest('[data-previous-step]');
+
+          if (nextButton) {
+            const activeFieldset = fieldsets.find((fieldset) => Number(fieldset.dataset.checkoutStep) === currentStep);
+            const invalidControl = activeFieldset.querySelector(':invalid');
+            if (invalidControl) {
+              invalidControl.reportValidity();
+              return;
+            }
+            showStep(Number(nextButton.dataset.nextStep));
+          }
+
+          if (previousButton) showStep(Number(previousButton.dataset.previousStep));
+        });
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          status.textContent = 'Formulario de demostración validado. No se ha procesado ningún pago.';
+        });
+
+        window.addEventListener('storage', (event) => {
+          if (event.key === storageKey || event.key === null) updateSummary();
+        });
+        window.addEventListener('pageshow', updateSummary);
+        updateSummary();
+      })();
+    </script>
+  </body>
+</html>
