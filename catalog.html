@@ -49,6 +49,7 @@
       </section>
 
       <form action="catalog.html" method="get" aria-label="Filtrar productos" class="mb-8 border-y border-[#dedbd3] py-4 sm:mb-10 sm:py-5">
+        <input id="applied-search" type="hidden" name="q" value="">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end sm:gap-5">
           <div>
             <label for="categoria" class="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-[#454740]">Categoría</label>
@@ -202,7 +203,7 @@
             </a>
           </li>
         </ul>
-        <p id="sin-resultados" class="hidden py-12 text-center text-base text-[#454740]" role="status">No hay productos que coincidan con estos filtros. Prueba otra combinación.</p>
+        <p id="sin-resultados" class="hidden py-12 text-center text-base text-[#454740]" role="status">No hay productos que coincidan con tu búsqueda o filtros. Prueba otra combinación.</p>
       </section>
     </main>
 
@@ -248,20 +249,44 @@
     <script>
       (() => {
         const form = document.querySelector('form[aria-label="Filtrar productos"]');
+        const searchForm = document.querySelector('form[role="search"]');
         const categorySelect = document.getElementById('categoria');
         const sizeSelect = document.getElementById('talla');
+        const searchInput = document.getElementById('busqueda');
+        const appliedSearchInput = document.getElementById('applied-search');
         const grid = document.getElementById('product-grid');
         const cards = [...grid.querySelectorAll(':scope > li')];
         const count = document.getElementById('resultados-count');
         const emptyMessage = document.getElementById('sin-resultados');
         const params = new URLSearchParams(window.location.search);
 
+        cards.forEach((card) => {
+          const name = card.querySelector('h3')?.textContent.trim() || '';
+          const productId = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          const productLink = card.querySelector('a[href="product.html"]');
+          if (productLink && productId) productLink.href = `product.html?producto=${encodeURIComponent(productId)}`;
+        });
+
         categorySelect.value = params.get('categoria') || '';
         sizeSelect.value = params.get('talla') || '';
+        searchInput.value = params.get('q') || '';
+        appliedSearchInput.value = params.get('q') || '';
 
-        function filterProducts() {
-          const category = categorySelect.value;
-          const size = sizeSelect.value;
+        searchForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const nextParams = new URLSearchParams();
+          const searchTerm = searchInput.value.trim();
+          if (searchTerm) nextParams.set('q', searchTerm);
+          if (params.get('categoria')) nextParams.set('categoria', params.get('categoria'));
+          if (params.get('talla')) nextParams.set('talla', params.get('talla'));
+          const query = nextParams.toString();
+          window.location.href = `catalog.html${query ? `?${query}` : ''}`;
+        });
+
+        const normalizeText = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
+
+        function filterProducts(category, size, searchTerm) {
+          const normalizedSearchTerm = normalizeText(searchTerm);
           let visibleCount = 0;
 
           cards.forEach((card) => {
@@ -272,7 +297,9 @@
             const matchesSizeRange = sizeRange && sizeOrder.indexOf(size) >= sizeOrder.indexOf(sizeRange[1]) && sizeOrder.indexOf(size) <= sizeOrder.indexOf(sizeRange[2]);
             const matchesCategory = !category || productCategory.toLocaleLowerCase('es') === category;
             const matchesSize = !size || Boolean(matchesSizeRange);
-            const isVisible = matchesCategory && matchesSize;
+            const searchableText = normalizeText(`${card.textContent} ${card.querySelector('img')?.alt || ''}`);
+            const matchesSearch = !normalizedSearchTerm || searchableText.includes(normalizedSearchTerm);
+            const isVisible = matchesCategory && matchesSize && matchesSearch;
 
             card.hidden = !isVisible;
             card.classList.toggle('hidden', !isVisible);
@@ -281,20 +308,9 @@
 
           count.textContent = `${visibleCount} ${visibleCount === 1 ? 'producto' : 'productos'}`;
           emptyMessage.classList.toggle('hidden', visibleCount !== 0);
-          const nextParams = new URLSearchParams();
-          if (category) nextParams.set('categoria', category);
-          if (size) nextParams.set('talla', size);
-          const query = nextParams.toString();
-          window.history.replaceState({}, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
         }
 
-        form.addEventListener('submit', (event) => {
-          event.preventDefault();
-          filterProducts();
-        });
-        categorySelect.addEventListener('change', filterProducts);
-        sizeSelect.addEventListener('change', filterProducts);
-        filterProducts();
+        filterProducts(categorySelect.value, sizeSelect.value, appliedSearchInput.value);
       })();
     </script>
   </body>
